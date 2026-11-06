@@ -97,6 +97,15 @@ Then press **`a`** for Android emulator, **`i`** for iOS simulator, or scan the 
 
 Copy `.env.example` to `.env` and set `EXPO_PUBLIC_SUPABASE_URL` and `EXPO_PUBLIC_SUPABASE_ANON_KEY` from the Supabase project's API settings. These public client values are embedded in the app bundle at build time; rebuild and reinstall the APK after changing them. Use only the publishable/anon key in the app—never put the service-role key in an `EXPO_PUBLIC_` variable.
 
+### Deploy the web app to GitHub Pages
+
+1. In the GitHub repository, open **Settings → Pages** and set the publishing source to **GitHub Actions**.
+2. Open **Settings → Secrets and variables → Actions**. Add the Supabase project URL as the `EXPO_PUBLIC_SUPABASE_URL` repository variable, and add its publishable/anon key as the `EXPO_PUBLIC_SUPABASE_ANON_KEY` repository secret. Never add a service-role key or `GEMINI_API_KEY` here.
+3. Run the **Deploy web app to GitHub Pages** workflow from the **Actions** tab, or push a commit to `main`.
+4. Once the workflow succeeds, the site is available at <https://wishdeath218-coder.github.io/BICSMA/>.
+
+The web build embeds the publishable/anon key in client-side code; this key is not a server-side secret. Keep private data protected by the configured database policies and Edge Functions. The Supabase database migrations and Edge Functions must be deployed separately before the app can use them.
+
 ---
 
 ## Account Setup
