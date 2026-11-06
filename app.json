@@ -1,0 +1,49 @@
+{
+  "expo": {
+    "name": "Barangay Bangbang",
+    "slug": "barangay-bangbang-rn",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "scheme": "barangaybangbang",
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.barangaybangbang.app"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#00193c"
+      },
+      "package": "com.barangaybangbang.app"
+    },
+    "web": {
+      "bundler": "metro",
+      "output": "static",
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/bangbanglogo.png",
+          "imageWidth": 168,
+          "resizeMode": "contain",
+          "backgroundColor": "#00193c"
+        }
+      ],
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Barangay Bangbang needs access to your photo library to attach photos to reports and announcements."
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": false
+    }
+  }
+}
